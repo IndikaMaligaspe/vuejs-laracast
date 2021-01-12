@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <head>
+    
+  </head>
+  <title>
+    lesson 2 - 4
+  </title>
+  <body>
+    <div id="root">	  
+       <ul>
+         <li v-for="name in names" v-text="name"></li>
+      </ul>	       
+      <input type="input" type="text" v-model="newName" v-on:keyPress="addWithEnter(this.event)"> 	 
+      <button @:click="addName"> Add Name </button>
+  </div>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+
+	new Vue ({
+           el: '#root',
+	       data: {
+	         newName: '',
+	         names: ['Joe', 'Mary', 'Jane', 'Jack']
+	       },
+	       methods: {
+	       	 addName() {
+	     	   this.names.push(this.newName)
+	           this.newName = ''
+	         },
+		 addWithEnter(e) {
+		    if (e.keyCode === 13){
+                      this.addName()
+		    }
+		 }
+	       }	       
+	})
+    </script>
+  </body>
+</html>
