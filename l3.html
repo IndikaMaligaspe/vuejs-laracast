@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+  <head>
+    
+  </head>
+  <title>
+    lesson 5 - computed properties
+  </title>
+  <body>
+    <div id="root">	 
+	    <h2> All taks</h2>
+	    <ul>
+	      <li v-for='(task,index) in tasks' v-bind:key='index'>
+ 		 {{task.description}}
+		<input type='checkbox' v-on:click='updateComplete(index)'/>
+       	      </li>	    
+	    </ul>
+	    <h2> Complete tasks </h2>
+	    <ul>
+		<li v-for='(task, index) in completeTasks' v-bind:key='index'>
+			{{task.description}}	
+		</li>
+	    </ul>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+
+	new Vue ({
+           el: '#root',
+	       data: {
+	         tasks: [
+		   { description: 'Go to the store', completed: true },
+  	           { description: 'Finish screenshot', completed: false },
+		   { description: 'Make donation', completed: false },
+		   { description: 'Make Dinner', completed: false },
+		   { description: 'Clean room', completed: true },
+		 ]
+	       },
+               computed: {
+	         completeTasks() {
+			 return this.tasks.filter(task => task.completed)
+	         }		 
+	       },
+	       methods: {
+	          updateComplete(index) {
+		     console.log(index)
+		     this.tasks[index].completed = true
+		  }
+	       }
+	})
+    </script>
+  </body>
+</html>
