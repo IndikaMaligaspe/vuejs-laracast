@@ -11,7 +11,7 @@
          <li v-for="name in names" v-text="name"></li>
       </ul>	       
       <input type="input" type="text" v-model="newName" v-on:keyPress="addWithEnter(this.event)"> 	 
-      <button @:click="addName"> Add Name </button>
+      <button v-bind:title="title" v-bind:disabled="disableBtn" @click="addName"> Add Name </button>
   </div>
    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script>
@@ -19,6 +19,8 @@
 	new Vue ({
            el: '#root',
 	       data: {
+		 disableBtn: true,      
+		 title: 'Click to add name',      
 	         newName: '',
 	         names: ['Joe', 'Mary', 'Jane', 'Jack']
 	       },
@@ -28,11 +30,14 @@
 	           this.newName = ''
 	         },
 		 addWithEnter(e) {
+	            this.disableBtn = false	 
 		    if (e.keyCode === 13){
                       this.addName()
+		      this.disableBtn = true
 		    }
 		 }
-	       }	       
+	       },
+
 	})
     </script>
   </body>
