@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+  <head>
+    
+  </head>
+  <title>
+    lesson 10
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" 
+  integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA==" 
+  crossorigin="anonymous" />
+  <body>
+    
+    <div id="root" class="container">	  
+        <bulma-modal v-if="showModal" @close="showModal = false">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+        </bulma-modal>
+        <button @click="showModal = true">Show Modal</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="modal.js"></script>
+  </body>
+</html>

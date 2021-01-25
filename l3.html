@@ -26,27 +26,27 @@
     <script>
 
 	new Vue ({
-           el: '#root',
-	       data: {
-	         tasks: [
-		   { description: 'Go to the store', completed: true },
-  	           { description: 'Finish screenshot', completed: false },
-		   { description: 'Make donation', completed: false },
-		   { description: 'Make Dinner', completed: false },
-		   { description: 'Clean room', completed: true },
-		 ]
-	       },
-               computed: {
-	         completeTasks() {
-			 return this.tasks.filter(task => task.completed)
-	         }		 
-	       },
-	       methods: {
-	          updateComplete(index) {
-		     console.log(index)
-		     this.tasks[index].completed = true
-		  }
-	       }
+		el: '#root',
+		data: {
+			tasks: [
+				{ description: 'Go to the store', completed: true },
+				{ description: 'Finish screenshot', completed: false },
+				{ description: 'Make donation', completed: false },
+				{ description: 'Make Dinner', completed: false },
+				{ description: 'Clean room', completed: true },
+			]
+		},
+		computed: {
+			completeTasks() {
+				return this.tasks.filter(task => task.completed)
+			}		 
+		},
+		methods: {
+			updateComplete(index) {
+				console.log(index)
+				this.tasks[index].completed = true
+			}
+		}
 	})
     </script>
   </body>
